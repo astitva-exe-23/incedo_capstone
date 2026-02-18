@@ -11,6 +11,10 @@ spring:
           uri: lb://customer-service
           predicates:
             - Path=/auth/**
+        - id: portfolio-service
+          uri: lb://portfolio-service
+          predicates:
+            - Path=/portfolio/**
 
 eureka:
   client:
