@@ -27,7 +27,7 @@ public class TelecomUsageController {
         );
     }
 
-    @PostMapping("/consume")
+    @PutMapping("/consume")
     public ResponseEntity<ApiResponse<Void>> consume(
             @Valid @RequestBody UsageRequestDTO request) {
 

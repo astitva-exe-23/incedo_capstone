@@ -8,7 +8,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/customer_db
     username: root
-    password: Contract@1968
+    password: Root@12345
 
   jpa:
     hibernate:
@@ -27,5 +27,5 @@ eureka:
     fetch-registry: true
 
 jwt:
-  secret: telecom-customer-secret-key-1234567890-abcdef
+  secret: 5d19a83b2bf414589e6f870b09991af25d19a83b2bf414589e6f870b09991af2
   expiration: 86400000
