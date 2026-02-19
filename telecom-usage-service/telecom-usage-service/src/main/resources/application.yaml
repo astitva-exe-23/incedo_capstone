@@ -6,9 +6,9 @@ spring:
     name: telecom-usage-service
 
   datasource:
-    url: jdbc:mysql://localhost:3306/telecom_usage_db
+    url: jdbc:mysql://localhost:3306/telecom_db
     username: root
-    password: Contract@1968
+    password: Root@12345
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:

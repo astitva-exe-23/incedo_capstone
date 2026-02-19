@@ -46,7 +46,7 @@ public class CustomerController {
         );
     }
 
-    @PutMapping("/{id}/wallet/deduct")
+    @PutMapping("/customers/{id}/wallet/deduct")
     public ResponseEntity<ApiResponse<Void>> deductWallet(
             @PathVariable Long id,
             @RequestParam Double amount) {
