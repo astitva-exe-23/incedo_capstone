@@ -2,6 +2,7 @@ package com.telecomw.investment_service.controller;
 
 import com.telecomw.investment_service.dto.InvestmentRequestDTO;
 import com.telecomw.investment_service.dto.InvestmentResponseDTO;
+import com.telecomw.investment_service.dto.InvestmentSummaryDTO;
 import com.telecomw.investment_service.service.InvestmentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -35,4 +36,11 @@ public class InvestmentController {
             @PathVariable Long investmentId) {
         return investmentService.redeem(investmentId);
     }
+
+    @GetMapping("/investments/{customerId}/summary")
+    public InvestmentSummaryDTO getSummary(
+            @PathVariable Long customerId) {
+        return investmentService.getSummaryByCustomerId(customerId);
+    }
+
 }

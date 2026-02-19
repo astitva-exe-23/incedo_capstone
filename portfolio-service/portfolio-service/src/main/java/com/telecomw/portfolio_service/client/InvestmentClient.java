@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name="investment-service")
 public interface InvestmentClient {
 
-    @GetMapping("/investments/{customerId}")
+    @GetMapping("/investments/{customerId}/summary")
     InvestmentSummaryDTO getInvestmentSummary(@PathVariable Long customerId);
 }

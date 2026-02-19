@@ -2,6 +2,7 @@ package com.telecomw.investment_service.service;
 
 import com.telecomw.investment_service.dto.InvestmentRequestDTO;
 import com.telecomw.investment_service.dto.InvestmentResponseDTO;
+import com.telecomw.investment_service.dto.InvestmentSummaryDTO;
 import com.telecomw.investment_service.entity.Investment;
 import com.telecomw.investment_service.entity.InvestmentPlan;
 import com.telecomw.investment_service.exception.BadRequestException;
@@ -87,4 +88,23 @@ public class InvestmentService {
                 .status(investment.getStatus())
                 .build();
     }
+
+
+    public InvestmentSummaryDTO getSummaryByCustomerId(Long customerId) {
+
+        List<Investment> investments = investmentRepository.findByCustomerId(customerId);
+
+        double totalInvestment = investments.stream()
+                .filter(inv -> "ACTIVE".equals(inv.getStatus()))
+                .mapToDouble(Investment::getAmount)
+                .sum();
+
+        int activePlans = (int) investments.stream()
+                .filter(inv -> "ACTIVE".equals(inv.getStatus()))
+                .count();
+
+        return new InvestmentSummaryDTO(totalInvestment, activePlans);
+    }
+
+
 }
