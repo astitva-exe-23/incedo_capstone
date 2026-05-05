@@ -4,13 +4,29 @@ server:
 spring:
   application:
     name: api-gateway
+
   cloud:
     gateway:
       routes:
         - id: customer-service
           uri: lb://customer-service
           predicates:
-            - Path=/auth/**
+            - Path=/auth/**,/customers/**
+
+        - id: telecom-service
+          uri: lb://telecom-usage-service
+          predicates:
+            - Path=/usage/**
+
+        - id: investment-service
+          uri: lb://investment-service
+          predicates:
+            - Path=/plans/**,/investments/**,/invest/**,/redeem/**
+
+        - id: portfolio-service
+          uri: lb://portfolio-service
+          predicates:
+            - Path=/portfolio/**
 
 eureka:
   client:
